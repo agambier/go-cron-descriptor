@@ -388,6 +388,9 @@ func (cd *CronDescriptor) getFullDescription() (*string, error) {
 		return nil, err
 	}
 	cd.sugarLog.Debugf("dayOfWeekDesc: %s", *dayOfWeekDesc)
+	if *dayOfWeekDesc == *dayOfMonthDesc {
+		*dayOfWeekDesc = ""
+	}
 
 	monthDesc, err := cd.getMonthDescription()
 	if err != nil {
