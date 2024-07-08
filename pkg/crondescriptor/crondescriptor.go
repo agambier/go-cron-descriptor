@@ -1,7 +1,6 @@
 // Package crondescriptor converts cron expressions into human readable
 // strings. The package includes four options for minor customization
 // of output.
-//
 package crondescriptor
 
 import (
@@ -131,7 +130,7 @@ func (cd *CronDescriptor) Parse(expression string) (err error) {
 		return ErrBlankExpression
 	}
 
-	splitExpr := strings.Split(expression, " ")
+	splitExpr := strings.Split(strings.Trim(expression, " "), " ")
 	splitExprLen := len(splitExpr)
 
 	switch {
